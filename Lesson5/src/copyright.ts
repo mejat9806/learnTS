@@ -26,3 +26,4 @@ const year = document.getElementById("year") as HTMLSpanElement; //we force it t
 const thisYear: string = new Date().getFullYear().toString(); //thisYear: string mean that it will be required to be a string
 year.setAttribute("datetime", thisYear);
 year.textContent = thisYear;
+console.log(year);

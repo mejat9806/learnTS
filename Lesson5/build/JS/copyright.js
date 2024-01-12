@@ -24,3 +24,4 @@ const year = document.getElementById("year"); //we force it to be an HTMLSpanEle
 const thisYear = new Date().getFullYear().toString(); //thisYear: string mean that it will be required to be a string
 year.setAttribute("datetime", thisYear);
 year.textContent = thisYear;
+console.log(year);
