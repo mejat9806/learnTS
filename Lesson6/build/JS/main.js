@@ -72,3 +72,47 @@ class Guitarist {
 const artist1 = new Guitarist("john", "guitar");
 const action1 = artist1.play("stroke");
 console.log(action1);
+//!./////////
+//!static keyword is used to define static members of a class. Static members are associated with the class itself rather than instances of the class.
+//!This means that you can access them using the class name without creating an instance of the class.
+class Peeps {
+    static getCount() {
+        return Peeps.count;
+    }
+    constructor(name) {
+        this.name = name;
+        this.name = name;
+        this.id = ++Peeps.count; //
+    }
+}
+Peeps.count = 0;
+const john = new Peeps("john");
+const steve = new Peeps("steve");
+const amy = new Peeps("amy");
+console.log(john.id);
+console.log(Peeps.count);
+//!/c///////////
+//! getters and setters
+class Bands {
+    constructor() {
+        this.dataState = [];
+    }
+    get data() {
+        return this.dataState;
+    }
+    set data(value) {
+        if (Array.isArray(value) && value.every((el) => typeof el === "string")) {
+            this.dataState = value;
+            return;
+        }
+        else
+            throw new Error("not array");
+    }
+}
+const Mybands = new Bands();
+console.log(Mybands);
+Mybands.data = ["band1", "band2", "band3"];
+console.log(Mybands.data);
+Mybands.data = [...Mybands.data, "zz bottom"];
+console.log(Mybands.data);
+Mybands.data = 1;
