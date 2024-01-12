@@ -97,7 +97,7 @@ console.log(action1);
 //!./////////
 
 //!static keyword is used to define static members of a class. Static members are associated with the class itself rather than instances of the class.
-//!This means that you can access them using the class name without creating an instance of the class.
+//!This means that you can access them using thed class name without creating an instance of the class.
 class Peeps {
   static count: number = 0;
   static getCount(): number {
