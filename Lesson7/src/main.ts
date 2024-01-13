@@ -2,7 +2,7 @@
 //! useful when creating object but we dont know exactly what is the object key but we know the object shape and the type of the key and value
 
 interface transactionObj {
-  readonly [index: string | number]: number;
+  readonly [index: string | number]: number; // the [key:value] vlaue cannot be a literal type
   pizza: number;
   Books: number;
   job: number;
@@ -77,3 +77,24 @@ const logStudentKey = (
   console.log(`student ${key}:${studentData[key]}`);
 };
 logStudentKey(student, "GPA");
+
+//!--------------------------------------------------
+
+/* interface incomes {
+  [key: string]: number;
+  Pizza:string  //@ 
+} */
+
+type Stream = "salary" | "bonus" | "side"; //other way to do interface undex signature
+
+type Incomes = Record<Stream, number>; // this method cannot use @
+
+const MontlyIncome: Incomes = {
+  salary: 900,
+  bonus: 120,
+  side: 1200,
+};
+
+for (const rev in MontlyIncome) {
+  console.log(MontlyIncome[rev as keyof Incomes]);
+}
