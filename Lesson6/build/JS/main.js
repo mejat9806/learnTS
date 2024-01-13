@@ -74,7 +74,7 @@ const action1 = artist1.play("stroke");
 console.log(action1);
 //!./////////
 //!static keyword is used to define static members of a class. Static members are associated with the class itself rather than instances of the class.
-//!This means that you can access them using the class name without creating an instance of the class.
+//!This means that you can access them using thed class name without creating an instance of the class.
 class Peeps {
     static getCount() {
         return Peeps.count;
@@ -115,4 +115,4 @@ Mybands.data = ["band1", "band2", "band3"];
 console.log(Mybands.data);
 Mybands.data = [...Mybands.data, "zz bottom"];
 console.log(Mybands.data);
-Mybands.data = 1;
+//Mybands.data = 1;//cant asign number to array

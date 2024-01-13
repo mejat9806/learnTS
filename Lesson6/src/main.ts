@@ -142,4 +142,4 @@ Mybands.data = ["band1", "band2", "band3"];
 console.log(Mybands.data);
 Mybands.data = [...Mybands.data, "zz bottom"];
 console.log(Mybands.data);
-Mybands.data = 1;
+//Mybands.data = 1;//cant asign number to array
