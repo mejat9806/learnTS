@@ -59,17 +59,29 @@ const student: StudentType = {
 //   //this will loop through the object //this is with indexed signature
 //   console.log(`${key}:${student[key]}`);
 // }
-
+//! keyof return the union of the key //typeof will return the type of variable and expression
+const person = {
+  name: "John",
+  age: 25,
+  email: "amer@example.com",
+};
+type personKey = keyof typeof person; // if key of only we got union type of string number .if add typeof we got name,age,email
+const person2: Record<personKey, string> = {
+  name: "amer",
+  age: 26,
+  email: "amer@example.com",
+};
+console.log(person2);
 for (const key in student) {
   //this will loop through the object //this is with key of and asertion
   // as and keyof will create a union type following the string literal in the interface
   console.log(`${key}:${student[key as keyof typeof student]}`); //key of and typeof wiill take the key of the student object and make it to a key
 }
-
 Object.keys(student).map((key) => {
   console.log(student[key as keyof typeof student]);
 });
 
+console.log();
 const logStudentKey = (
   studentData: typeof student,
   key: keyof typeof student,
@@ -80,9 +92,9 @@ logStudentKey(student, "GPA");
 
 //!--------------------------------------------------
 
-/* interface incomes {
+/* interface incomes { //@ 
   [key: string]: number;
-  Pizza:string  //@ 
+  Pizza:string 
 } */
 
 type Stream = "salary" | "bonus" | "side"; //other way to do interface undex signature
