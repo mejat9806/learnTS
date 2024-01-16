@@ -116,6 +116,7 @@ const car: car = {
   model: "123",
 };
 
+//!interface can only be used on object form
 interface rectangle {
   height: number;
   width: number;
@@ -125,6 +126,32 @@ const cube: rectangle = {
   height: 200,
   width: 200,
 };
+
+//!type allias method
+// Define a type alias with a method
+type MyType = {
+  name: string;
+  age: number;
+  sayHello: () => void;
+  multiply: (x: number, y: number) => number;
+};
+
+// Create an object adhering to the type alias
+const myObj: MyType = {
+  name: "John",
+  age: 30,
+  sayHello() {
+    console.log("Hello!");
+  },
+  multiply(x, y) {
+    return x * y;
+  },
+};
+
+// Access properties and invoke methods
+console.log(myObj.name); // "John"
+console.log(myObj.multiply(2, 3)); // 6
+myObj.sayHello(); // "Hello!"
 
 //ennum
 //!An enum is a special "class" that represents a group of constants (unchangeable variables).
@@ -412,12 +439,13 @@ Object.keys(student).map((key) => {
 });
 
 //!keyof
-//?keyof will create union type using the key like for example here name GPA and classes
+//?keyof will create union type using the key like for example here name GPA and classes based on the object
 //!typeof
 //?we use typeof when we dont know the interface type,this will get the type based on the refrence object
 /* student = { ...student, test: "amer" };
 console.log(student.test);
  */
+//! keyof typeof is used to obtain the keys (property names) of a type in TypeScript. When applied to an object or a type, it results in a union type of string literals representing the keys of that object or type.
 
 const logStudentKey = (student: Student, key: keyof Student): string => {
   const data = `student ${key}:${student[key]}`;
