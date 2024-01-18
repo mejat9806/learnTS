@@ -1,0 +1,25 @@
+* {
+  margin: 0%;
+  padding-top: 0.25rem;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: aliceblue;
+  place-content: center;
+  display: grid;
+  font-size: 150%;
+}
+
+button {
+  font-size: 2rem;
+}
+.bold {
+  font-weight: bold;
+}
+
+.gold {
+  font-weight: bold;
+  color: gold;
+}
