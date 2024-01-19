@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 type sectionProp = {
   title?: string;
-  children: ReactNode; //ReactNode is use for like children prop
+  children: ReactNode; //ReactNode is use for like children prop//all react is in react node
 };
 export default function Section({
   title = "my sub heading",

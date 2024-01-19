@@ -1,21 +1,19 @@
-import { ReactNode } from "react";
 //generic T here work like a variable for TYPE
-interface ListProps<T> {
-  items: T[];
-  render: (item: T) => ReactNode;
+
+import { ReactNode } from "react";
+
+interface ListProps<generic> {
+  items: generic[];
+  render: (item: generic) => ReactNode;
 }
-type List<T> = {
-  item: T[];
-};
-function List<T>({ items, render }: ListProps<T>) {
+function List<generic>({ items, render }: ListProps<generic>) {
+  //the type placeholder <generic> allows your List function to adapt to different data types, making it more versatile and reusable in various scenarios.this the <generic>
   return (
-    <div>
-      <ul>
-        {items.map((item, i) => (
-          <li key={i}>{render(item)}</li>
-        ))}
-      </ul>
-    </div>
+    <ul>
+      {items.map((item, i) => (
+        <li key={i}>{render(item)}</li>
+      ))}
+    </ul>
   );
 }
 

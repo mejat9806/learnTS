@@ -1,17 +1,21 @@
 import { ReactNode } from "react";
 
-type counterProp = {
-  setCount: React.Dispatch<React.SetStateAction<number>>; //
+type useCountState = {
   children: ReactNode;
+  setCount: React.Dispatch<React.SetStateAction<number>>;
 };
-function Counter({ setCount, children }: counterProp) {
-  //   const [count, setCount] = useState<number>(0); // if the state has no value put in  union type like null or undefined//you dont need to <number> because TS will infer it from the value
+
+function Counter({ setCount, children }: useCountState) {
+  // const [count, setCount] = useState<number>(0); // if the state has no value put in  union type like null or undefined//you dont need to <number> because TS will infer it from the value
   return (
     <div style={{ display: "flex" }}>
-      <button onClick={() => setCount((prev) => prev + 1)}>+</button>
-      {/*   <p>the count is {count}</p> */}
-      {children}
-      <button onClick={() => setCount((prev) => prev - 1)}>-</button>
+      <main>
+        <h1>{children}</h1>
+        <div>
+          <button onClick={() => setCount((prev) => prev + 1)}>Increase</button>
+          <button onClick={() => setCount((prev) => prev - 1)}>Decrease</button>
+        </div>
+      </main>
     </div>
   );
 }

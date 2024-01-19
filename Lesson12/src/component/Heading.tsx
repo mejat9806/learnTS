@@ -4,7 +4,7 @@ type HeadingProps = { title: string };
 const Heading = ({ title }: HeadingProps): ReactElement => {
   return (
     <div>
-      <h1>{title}</h1>
+      <h1>{title.toUpperCase()}</h1>
     </div>
   );
 };
