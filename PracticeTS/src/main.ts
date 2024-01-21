@@ -293,9 +293,9 @@ type two = number | string; //union and string type
 type three = "hello"; // literal type of hello
 type four = boolean; // literal type of hello
 
-let a: one = "hello";
+/* let a: one = "hello";
 let b = a as two; // less specific types //basic this widen the type options from string to string|number
-let c = a as three; // more specific types //this narrowing the type options to string literal type//
+let c = a as three; // more specific types //this narrowing the type options to string literal type// */
 
 //?other way to use it
 let d = <one>"world";
@@ -392,10 +392,11 @@ let todaytransaction: transactionObj = {
   Books: 5,
   job: 50,
   dave: 12,
+  //amer: "maer", //this is wrong because the value need to be a number
 };
-
+console.log(todaytransaction);
 console.log(todaytransaction["Books"]);
-console.log(todaytransaction.Books);
+console.log(todaytransaction.dave);
 
 let prop: string = "pizza";
 //todaytransaction.pizza = 5; // this is error because it has read only
@@ -419,9 +420,9 @@ console.log(todaytransaction["dave"]); //this will return undefined because the 
 
 interface Student {
   [key: string]: string | number | number[] | undefined; //if we have optional key we need to add undefiend
-  name: string;
+  /*  name: string;
   GPA: number;
-  classes?: number[];
+  classes?: number[]; */
 }
 let student: Student = {
   name: "amer",
@@ -429,22 +430,36 @@ let student: Student = {
   classes: [120, 130],
 };
 
+console.log(student);
 for (const key in student) {
   console.log(`${key}:${student[key as keyof Student]}`);
 }
+console.log(typeof student.classes);
 
 Object.keys(student).map((key) => {
   console.log(student[key as keyof typeof student]);
   console.log(key as keyof typeof student);
 });
 
-//!keyof
-//?keyof will create union type using the key like for example here name GPA and classes based on the object
+// typeof
+
 //!typeof
-//?we use typeof when we dont know the interface type,this will get the type based on the refrence object
+const a3 = { value: 100, text: "Test_a" }; // type { value: number, text: string }
+const b4: typeof a3 = { value: 200, text: "Test_b" };
+// const c: typeof a = { value: 300, text: 300 }; // Type 'number' is not assignable to type 'string'
+// const d2: typeof a = { value: 100 } as typeof a; // Type 'number' is not assignable to type 'string'
+// //?we use typeof when we dont know the interface type,this will get the type based on the refrence object
 /* student = { ...student, test: "amer" };
 console.log(student.test);
- */
+*/
+//!keyof
+//?keyof will create union type using the key like for example here name GPA and classes based on the object// keyof
+
+type t = keyof { value: 100; text: "Test_a" }; // t = "value" | "text"
+
+const a: t = "value";
+
+const b: t = 10; // Type '10' is not assignable to type '"value" | "text"'
 //! keyof typeof is used to obtain the keys (property names) of a type in TypeScript. When applied to an object or a type, it results in a union type of string literals representing the keys of that object or type.
 
 const logStudentKey = (student: Student, key: keyof Student): string => {
