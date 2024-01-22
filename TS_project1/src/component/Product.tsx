@@ -1,6 +1,5 @@
 import { ProductType } from "../context/ProductProvider";
 import { ReducerActionType, ReducerAction } from "../context/CartProvider";
-import { ReactElement } from "react";
 
 type PropsType = {
   product: ProductType;
@@ -8,12 +7,7 @@ type PropsType = {
   REDUCER_ACTIONS: ReducerActionType;
   inCart: boolean;
 };
-function Product({
-  product,
-  REDUCER_ACTIONS,
-  dispatch,
-  inCart,
-}: PropsType): ReactElement {
+function Product({ product, REDUCER_ACTIONS, dispatch, inCart }: PropsType) {
   const image: string = new URL(`../images/${product.sku}.jpg`, import.meta.url)
     .href;
   console.log(image);
